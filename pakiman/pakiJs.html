@@ -1,0 +1,69 @@
+var imagenes = [];
+imagenes["Cauchin"] = "vaca.png";
+imagenes["Pokacho"] = "pollo.png";
+imagenes["Tocinauro"] = "cerdo.png";
+
+/*
+console.log(imagenes);
+*/
+
+/*
+var imagenes =
+{
+  Cauchin: "vaca.png",
+  Pokacho: "pollo.png",
+  Tocinauro: "cerdo.png"
+}
+*/
+
+class Pakiman
+{
+  constructor(nombre, v , a)
+  {
+    this.imagen = new Image();
+    this.nombre = nombre;
+    this.vida = v;
+    this.ataque = a;
+    this.tipo = "tierra";
+    this.imagen.src = imagenes[this.nombre];
+
+    /*alert("ESTOY VIVO");*/
+  }
+  hablar()
+  {
+    alert("Hola soy un pakiman y me llamo "+ this.nombre);
+  }
+  mostrar()
+  {
+    document.body.appendChild(this.imagen);
+  }
+}
+
+var cauchin = new Pakiman("Cauchin", 100, 30);
+var pokacho = new Pakiman("Pokacho", 80, 50);
+var tocinauro = new Pakiman("Tocinauro", 120, 40);
+
+pokacho.mostrar();
+
+/*
+console.log(cauchin, pokacho, tocinauro);
+*/
+
+/*
+tocinauro.hablar();
+pokacho.hablar();
+cauchin.hablar();
+*/
+
+
+/*
+console.log(cauchin);
+console.log(pokacho);
+console.log(tocinauro);
+console.log("***************");
+
+console.log("con '[nombreDelPakiman].hablar();' + enter ...se activa la funcion hablar");
+pokacho.hablar();
+cauchin.hablar();
+tocinauro.hablar();
+*/

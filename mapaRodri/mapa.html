@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" /1>
+    <title>Mapeando con canvas</title>
+    <style media="screen">
+    body
+    {
+      background-color: coral;
+    }
+    canvas
+    {
+      background-color: white;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Mapa en canvas</h1>
+    <!--p>
+      Cuantas filas quieres?
+      <input type="text" name="" id="texto_filas"/>
+      <input type="button" name="" value="A darle" id="botoncito" />
+    </pre-->
+    <canvas id="dibujito" width="304" height="304"></canvas>
+    <p>Asi queda tu mapa</p>
+    <script>
+      /*var texto = document.getElementById('texto_filas');
+      var boton = document.getElementById('botoncito');
+      boton.addEventListener("click", mapaPorClick);*/
+
+      var d = document.getElementById('dibujito');
+      var lienzo = d.getContext("2d");
+      var ancho = (d.width) - 4;
+      var alto = (d.height) - 4;
+      var filas = 30;
+      var ySup = 80;
+      var xInicial = 170;
+      var xFinal = 250;
+      var espacio = alto / filas;
+      console.log(lienzo);
+
+      var color = "#55F";
+
+      dibujarFila(10, 30 , 40);
+      dibujarFila(11, 25 , 50);
+      dibujarFila(12, 20 , 90);
+
+      function dibujarFila(fila, xInicial, xFinal)
+      {
+      /*var ySup = (fila - 1) * espacio;
+      var yInf = fila * espacio;*/
+      var ySup = (fila - 1) * espacio;
+      var yInf = ySup + espacio;
+      lienzo.beginPath();
+      lienzo.strokeStyle = color;
+      lienzo.moveTo(xInicial, ySup);
+      lienzo.lineTo(xInicial, yInf);
+      lienzo.stroke();
+      lienzo.closePath();
+      lienzo.beginPath();
+      /*lienzo.strokeStyle = color;*/
+      lienzo.moveTo(xFinal, ySup);
+      lienzo.lineTo(xFinal, yInf);
+      lienzo.stroke();
+      lienzo.closePath();
+      }
+
+      /*function dibujoPorClick()
+      {
+        var xi, xf;
+        var lineas = parseInt(texto.value);
+        var colorcito = "#77F";
+        var espacio = ancho / lineas;
+        for (l = 0; l < lineas + 1; l++)
+        {
+          yi = espacio * l;
+          xf = espacio * l;
+          dibujarFila(colorcito, 2, yi + 2 , xf + 2, ancho + 2);
+          console.log("F "+ l);
+        }
+      }*/
+    </script>
+  </body>
+</html>
